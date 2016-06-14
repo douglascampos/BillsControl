@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  valor: 9.99
+  dividido: false
+  ajuste: MyString
+
+two:
+  nome: MyString
+  valor: 9.99
+  dividido: false
+  ajuste: MyString

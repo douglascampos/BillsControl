@@ -1,0 +1,61 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :descrição %><br>
+    <%= f.text_field :descrição %>
+  </div>
+  <div class="field">
+    <%= f.label :ajuste %><br>
+    <%= f.text_field :ajuste %>
+  </div>
+  <div class="field">
+    <%= f.label :parcelas %><br>
+    <%= f.number_field :parcelas %>
+  </div>
+  <div class="field">
+    <%= f.label :mInicio %><br>
+    <%= f.number_field :mInicio %>
+  </div>
+  <div class="field">
+    <%= f.label :mesFinal %><br>
+    <%= f.number_field :mesFinal %>
+  </div>
+  <div class="field">
+    <%= f.label :saque %><br>
+    <%= f.check_box :saque %>
+  </div>
+  <div class="field">
+    <%= f.label :transferencia %><br>
+    <%= f.check_box :transferencia %>
+  </div>
+  <div class="field">
+    <%= f.label :cartão %><br>
+    <%= f.check_box :cartão %>
+  </div>
+  <div class="field">
+    <%= f.label :internet %><br>
+    <%= f.check_box :internet %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

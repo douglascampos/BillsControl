@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valor: 9.99
+  titulo: MyString
+  descrição: MyString
+  ajuste: 9.99
+  parcelas: 1
+  mInicio: 1
+  mesFinal: 1
+  saque: false
+  transferencia: false
+  cartão: false
+  internet: false
+
+two:
+  valor: 9.99
+  titulo: MyString
+  descrição: MyString
+  ajuste: 9.99
+  parcelas: 1
+  mInicio: 1
+  mesFinal: 1
+  saque: false
+  transferencia: false
+  cartão: false
+  internet: false

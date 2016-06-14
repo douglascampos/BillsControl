@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-dashboard">Receitas (Salarios)</h1>
+
+
+  <p id="notice" class="ls-alert-info"><%= notice %></p>
+
+  <table class="ls-table ls-table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th class="hidden-xs">Valor</th>
+        <th>Dividido</th>
+        <th>Ajuste</th>
+        <th class="hidden-xs" colspan="2">Mes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.nome %></td>
+          <td class="hidden-xs"><%= income.valor %></td>
+          <td><%= income.dividido %></td>
+          <td><%= income.ajuste %></td>
+          <td class="hidden-xs"><%= income.mounth %></td>
+          <!-- <td><%= link_to 'Show', income %></td> -->
+          <td><%= link_to 'Edit', edit_income_path(income), class: "ls-btn ls-ico-cog" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Adicionar renda', new_income_path, class: "ls-btn-primary ls-ico-plus" %>
+</div>

@@ -1,0 +1,55 @@
+<%= form_for(@income) do |f| %>
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+      <ul>
+      <% @income.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text"><%= f.label :nome %></b>
+      <p class="ls-label-info">Digite seu nome completo</p>
+      <%= f.text_field :nome, placeholder:"De quem é esse salario" %>
+    </label>
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :valor %></b>
+      <p class="ls-label-info">Qual valor do salario</p>
+      <%= f.text_field :valor, placeholder:"1500" %>
+    </label>
+
+    <label class="ls-label col-md-3">
+        <b class="ls-label-text"><%= f.label :dividido %></b>
+
+        <div data-ls-module="switchButton" class="ls-switch-btn ls-float-left">
+          <%= f.check_box :dividido, id:"splited_income" %>
+          <label class="ls-switch-label" for="splited_income" name="label-teste" ls-switch-off="Parcela unica" ls-switch-on="Duas Parcelas"><span></span></label>
+        </div>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :ajuste %></b>
+      <p class="ls-label-info">Qual valor do salario</p>
+      <%= f.text_field :ajuste, placeholder:"1600" %>
+    </label>
+
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :mounth %></b>
+      <p class="ls-label-info">Qual o mes do salario</p>
+      <%= f.text_field :mounth, placeholder:"9" %>
+    </label>
+  </fieldset>
+
+  <hr>
+
+
+  <div class= "form-actions">
+    <%= f.submit "Adicionar", class:"ls-btn ls-btn-primary ls-ico-plus" %>
+    <%= link_to 'Destroy', @income, method: :delete, data: { confirm: 'Are you sure?' }, class: "ls-btn-danger" %> 
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @income.nome %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @income.valor %>
+</p>
+
+<p>
+  <strong>Dividido:</strong>
+  <%= @income.dividido %>
+</p>
+
+<p>
+  <strong>Ajuste:</strong>
+  <%= @income.ajuste %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @income.mounth %>
+</p>
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>

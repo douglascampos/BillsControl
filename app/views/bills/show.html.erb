@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @bill.valor %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @bill.titulo %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @bill.descrição %>
+</p>
+
+<p>
+  <strong>Ajuste:</strong>
+  <%= @bill.ajuste %>
+</p>
+
+<p>
+  <strong>Parcelas:</strong>
+  <%= @bill.parcelas %>
+</p>
+
+<p>
+  <strong>Minicio:</strong>
+  <%= @bill.mInicio %>
+</p>
+
+<p>
+  <strong>Mesfinal:</strong>
+  <%= @bill.mesFinal %>
+</p>
+
+<p>
+  <strong>Saque:</strong>
+  <%= @bill.saque %>
+</p>
+
+<p>
+  <strong>Transferencia:</strong>
+  <%= @bill.transferencia %>
+</p>
+
+<p>
+  <strong>Cartão:</strong>
+  <%= @bill.cartão %>
+</p>
+
+<p>
+  <strong>Internet:</strong>
+  <%= @bill.internet %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>
