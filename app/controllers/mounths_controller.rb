@@ -7,6 +7,7 @@ class MounthsController < ApplicationController
 
   def view
     # byebug
+    @mounth = params[:id]
     @bills = Bill.where(minicio:params[:id])
     @total_bills = 0
     @bills.each { |b| @total_bills += b.valor  }

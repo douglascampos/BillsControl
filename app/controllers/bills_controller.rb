@@ -14,7 +14,9 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
+
     @bill = Bill.new
+    @bill.mInicio = params[:mounth]
   end
 
   # GET /bills/1/edit

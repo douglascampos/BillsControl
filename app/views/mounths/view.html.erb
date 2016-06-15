@@ -1,51 +1,112 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-dashboard">Contas mensais</h1>
 
-<h1>Listing Bills</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Titulo</th>
-      <th>Descrição</th>
-      <th>Ajuste</th>
-      <th>Parcelas</th>
-      <th>Minicio</th>
-      <th>Mesfinal</th>
-      <th>Saque</th>
-      <th>Transferencia</th>
-      <th>Cartão</th>
-      <th>Internet</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <p id="notice" class="ls-alert-info"><%= notice %></p>
 
-  <tbody>
-    <% @bills.each do |bill| %>
+  <table class="ls-table ls-table-striped">
+    <thead>
       <tr>
-        <td><%= bill.valor %></td>
-        <td><%= bill.titulo %></td>
-        <td><%= bill.descrição %></td>
-        <td><%= bill.ajuste %></td>
-        <td><%= bill.parcelas %></td>
-        <td><%= bill.mInicio %></td>
-        <td><%= bill.mesFinal %></td>
-        <td><%= bill.saque %></td>
-        <td><%= bill.transferencia %></td>
-        <td><%= bill.cartão %></td>
-        <td><%= bill.internet %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Titulo</th>
+        <th class="hidden-xs">Valor</th>
+        <th>Ajuste</th>
+        <th>Parcelas</th>
+        <th>Saque</th>
+        <th>Transf.</th>
+        <th>Cartão</th>
+        <th class="hidden-xs" colspan="2">Internet</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<hr>
-<h3>TOTAL DE CONTAS: <%= @total_bills %></h3>
-<h3>TOTAL DE RENDIMENTOS: <%= @total_incomes %></h3>
-<h1>SALDO FINAL: <%= @total_incomes - @total_bills %></h1>
+    </thead>
+    <tbody>
+        <% @bills.each do |bill| %>
+        <tr>
+          <td><%= bill.titulo %></td>
+          <td class="hidden-xs"><%= bill.valor %></td>
+          <td><%= bill.ajuste %></td>
+          <td><%= bill.parcelas %></td>
+          <td><%= bill.saque %></td>
+          <td><%= bill.transferencia %></td>
+          <td><%= bill.cartão %></td>
+          <td><%= bill.internet %></td>
+          <td><%= link_to 'Edit', edit_bill_path(bill), class: "ls-btn ls-ico-cog" %> </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- <hr>
+  <h3>TOTAL DE CONTAS: <%= @total_bills %></h3>
+  <h3>TOTAL DE RENDIMENTOS: <%= @total_incomes %></h3>
+  <h1>SALDO FINAL: <%= @total_incomes - @total_bills %></h1> -->
+
+
+<!-- <hr> -->
+
+
+<div class="ls-box ls-board-box">
+<header class="ls-info-header">
+  <h2 class="ls-title-3">Balanço mensal</h2>
+  <p class="ls-float-right ls-float-none-xs ls-small-info"> Mês <strong><%= @mounth %></strong></p>
+</header>
+<div id="sending-stats" class="row">
+  <div class="col-sm-6 col-md-3">
+    <div class="ls-box">
+      <div class="ls-box-head">
+        <h6 class="ls-title-4">Renda Mensal</h6>
+      </div>
+      <div class="ls-box-body">
+        <strong>R$<%= @total_incomes %></strong>
+        <small>Aqui você verifica seus dados</small>
+      </div>
+      <div class="ls-box-footer">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="ls-box">
+      <div class="ls-box-head">
+        <h6 class="ls-title-4">Total de Contas</h6>
+      </div>
+      <div class="ls-box-body">
+        <strong>R$<%= @total_bills %></strong>
+        <small>Como diminuir as contas?</small>
+      </div>
+      <div class="ls-box-footer">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-3">
+    <div class="ls-box">
+      <div class="ls-box-head">
+        <h6 class="ls-title-4">Total de Contas</h6>
+      </div>
+      <div class="ls-box-body">
+        <strong>R$<%= @total_incomes - @total_bills %></strong>
+
+      </div>
+      <div class="ls-box-footer">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-sm-6 col-md-3">
+    <div class="ls-box ls-box-centered">
+      <strong>TEXTO</strong>
+    </div>
+  </div> -->
+
+</div>
+</div>
+
+</div>
 
 <br>
 
-<%= link_to 'New Bill', new_bill_path %>
+
+
+<%= link_to 'New Bill', new_bill_path(:mounth => @mounth) %>

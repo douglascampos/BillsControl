@@ -11,13 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614000528) do
+ActiveRecord::Schema.define(version: 20160615011357) do
 
   create_table "bills", force: :cascade do |t|
-    t.decimal  "valor",                     precision: 10
     t.string   "titulo",        limit: 255
     t.string   "descrição",     limit: 255
-    t.decimal  "ajuste",                    precision: 10
     t.integer  "parcelas",      limit: 4
     t.integer  "mInicio",       limit: 4
     t.integer  "mesFinal",      limit: 4
@@ -25,18 +23,20 @@ ActiveRecord::Schema.define(version: 20160614000528) do
     t.boolean  "transferencia"
     t.boolean  "cartão"
     t.boolean  "internet"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.decimal  "valor",                     precision: 8, scale: 2
+    t.decimal  "ajuste",                    precision: 8, scale: 2
   end
 
   create_table "incomes", force: :cascade do |t|
     t.string   "nome",       limit: 255
-    t.decimal  "valor",                  precision: 10
     t.boolean  "dividido"
-    t.string   "ajuste",     limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "mounth",     limit: 4
+    t.decimal  "ajuste",                 precision: 8, scale: 2
+    t.decimal  "valor",                  precision: 8, scale: 2
   end
 
 end
