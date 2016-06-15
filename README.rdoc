@@ -1,32 +1,12 @@
 == README
+A idéia desse projeto é criar um app para cuidar das contas pessoais, já estou cansado de procurar aplicativos para fazer o que eu quero que seja feito.
+Decidi criar o meu.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Para utilizar
+* Baixar o código $ git clone
 
-Things you may want to cover:
+* Criar o banco $ rake db:create
 
-* Ruby version
+* Criar as tabelas $ rake db:migrate
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-Generate
-rails generate scaffold Bills valor:decimal titulo:string descrição:string ajuste:decimal parcelas:integer mInicio:integer mesFinal:integer saque:boolean transferencia:boolean cartão:boolean internet:boolean
-rails generate scaffold Incomes nome:string valor:decimal dividido:boolean ajuste:string
+* Subir o projeto $ rails server
