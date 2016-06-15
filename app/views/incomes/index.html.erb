@@ -18,9 +18,9 @@
       <% @incomes.each do |income| %>
         <tr>
           <td><%= income.nome %></td>
-          <td class="hidden-xs"><%= income.valor %></td>
+          <td class="hidden-xs"><%= format_value(income.valor) %></td>
           <td><%= income.dividido %></td>
-          <td><%= income.ajuste %></td>
+          <td><%= format_value(income.ajuste) %></td>
           <td class="hidden-xs"><%= income.mounth %></td>
           <!-- <td><%= link_to 'Show', income %></td> -->
           <td><%= link_to 'Edit', edit_income_path(income), class: "ls-btn ls-ico-cog" %></td>

@@ -21,8 +21,8 @@
         <% @bills.each do |bill| %>
         <tr>
           <td><%= bill.titulo %></td>
-          <td class="hidden-xs"><%= bill.valor %></td>
-          <td><%= bill.ajuste %></td>
+          <td class="hidden-xs"><%= format_value(bill.valor) %></td>
+          <td><%= format_value(bill.ajuste) %></td>
           <td><%= bill.parcelas %></td>
           <td><%= bill.saque %></td>
           <td><%= bill.transferencia %></td>
@@ -56,7 +56,7 @@
         <h6 class="ls-title-4">Renda Mensal</h6>
       </div>
       <div class="ls-box-body">
-        <strong>R$<%= @total_incomes %></strong>
+        <strong><%= format_value(@total_incomes) %></strong>
         <small>Aqui você verifica seus dados</small>
       </div>
       <div class="ls-box-footer">
@@ -70,7 +70,7 @@
         <h6 class="ls-title-4">Total de Contas</h6>
       </div>
       <div class="ls-box-body">
-        <strong>R$<%= @total_bills %></strong>
+        <strong><%= format_value(@total_bills) %></strong>
         <small>Como diminuir as contas?</small>
       </div>
       <div class="ls-box-footer">
@@ -85,7 +85,7 @@
         <h6 class="ls-title-4">Total de Contas</h6>
       </div>
       <div class="ls-box-body">
-        <strong>R$<%= @total_incomes - @total_bills %></strong>
+        <strong><%= format_value(@total_incomes - @total_bills) %></strong>
 
       </div>
       <div class="ls-box-footer">
