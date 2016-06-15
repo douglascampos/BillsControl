@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <fieldset>
     <label class="ls-label col-md-3">
       <b class="ls-label-text"><%= f.label :nome %></b>
@@ -19,7 +20,7 @@
     <label class="ls-label col-md-2">
       <b class="ls-label-text"><%= f.label :valor %></b>
       <p class="ls-label-info">Qual valor do salario</p>
-      <%= f.text_field :valor, placeholder:"1500" %>
+      <%= f.text_field :valor, placeholder:"1590.75" %>
     </label>
 
     <label class="ls-label col-md-3">
@@ -34,7 +35,7 @@
     <label class="ls-label col-md-2">
       <b class="ls-label-text"><%= f.label :ajuste %></b>
       <p class="ls-label-info">Qual valor do salario</p>
-      <%= f.text_field :ajuste, placeholder:"1600" %>
+      <%= f.text_field :ajuste, placeholder:"1632.81" %>
     </label>
 
 
@@ -50,6 +51,6 @@
 
   <div class= "form-actions">
     <%= f.submit "Adicionar", class:"ls-btn ls-btn-primary ls-ico-plus" %>
-    <%= link_to 'Destroy', @income, method: :delete, data: { confirm: 'Are you sure?' }, class: "ls-btn-danger" %> 
+    <%= link_to 'Excluir', @income, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esse salário?' }, class: "ls-btn-danger" %>
   </div>
 <% end %>

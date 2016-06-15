@@ -11,51 +11,86 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
-  </div>
-  <div class="field">
-    <%= f.label :titulo %><br>
-    <%= f.text_field :titulo %>
-  </div>
-  <div class="field">
-    <%= f.label :descrição %><br>
-    <%= f.text_field :descrição %>
-  </div>
-  <div class="field">
-    <%= f.label :ajuste %><br>
-    <%= f.text_field :ajuste %>
-  </div>
-  <div class="field">
-    <%= f.label :parcelas %><br>
-    <%= f.number_field :parcelas %>
-  </div>
-  <div class="field">
-    <%= f.label :mInicio %><br>
-    <%= f.number_field :mInicio %>
-  </div>
-  <div class="field">
-    <%= f.label :mesFinal %><br>
-    <%= f.number_field :mesFinal %>
-  </div>
-  <div class="field">
-    <%= f.label :saque %><br>
-    <%= f.check_box :saque %>
-  </div>
-  <div class="field">
-    <%= f.label :transferencia %><br>
-    <%= f.check_box :transferencia %>
-  </div>
-  <div class="field">
-    <%= f.label :cartão %><br>
-    <%= f.check_box :cartão %>
-  </div>
-  <div class="field">
-    <%= f.label :internet %><br>
-    <%= f.check_box :internet %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <fieldset>
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text"><%= f.label :Titulo %></b>
+      <p class="ls-label-info">Digite o titulo da conta</p>
+      <%= f.text_field :titulo, placeholder:"Conta de água" %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :valor %></b>
+      <p class="ls-label-info">Qual valor da conta de água</p>
+      <%= f.text_field :valor, placeholder:"150.00" %>
+    </label>
+
+    <label class="ls-label col-md-4">
+      <b class="ls-label-text"><%= f.label :descrição %></b>
+      <p class="ls-label-info">Digite o descrição da conta</p>
+      <%= f.text_field :descrição, placeholder:"Conta de água do apartamento do Tatuapé" %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :ajuste %></b>
+      <p class="ls-label-info">Depois que o mês fechou qual foi o valor final</p>
+      <%= f.text_field :ajuste, placeholder:"158.90" %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :parcelas %></b>
+      <p class="ls-label-info">Quantas parcelas foi dividida essa conta?</p>
+      <%= f.text_field :parcelas, placeholder:"3" %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text"><%= f.label :mInicio %></b>
+      <p class="ls-label-info">Qual o mes dessa conta?</p>
+      <%= f.text_field :mInicio, placeholder:"5" %>
+    </label>
+
+    <label class="ls-label col-md-3">
+        <b class="ls-label-text"><%= f.label :saque %></b>
+
+        <div data-ls-module="switchButton" class="ls-switch-btn ls-float-left">
+          <%= f.check_box :saque, id:"ptg_saque" %>
+          <label class="ls-switch-label" for="ptg_saque" name="label-saque" ls-switch-off="Não sacar" ls-switch-on="Preciso sacar"><span></span></label>
+        </div>
+    </label>
+
+    <label class="ls-label col-md-3">
+        <b class="ls-label-text"><%= f.label :transferencia %></b>
+
+        <div data-ls-module="switchButton" class="ls-switch-btn ls-float-left">
+          <%= f.check_box :transferencia, id:"ptg_transferencia" %>
+          <label class="ls-switch-label" for="ptg_transferencia" name="label-transferencia" ls-switch-off="Não Transferir" ls-switch-on="Preciso transferir"><span></span></label>
+        </div>
+    </label>
+
+    <label class="ls-label col-md-5">
+        <b class="ls-label-text"><%= f.label :cartão %></b>
+
+        <div data-ls-module="switchButton" class="ls-switch-btn ls-float-left">
+          <%= f.check_box :cartão, id:"ptg_cartão" %>
+          <label class="ls-switch-label" for="ptg_cartão" name="label-cartão" ls-switch-off="Não esta no cartão" ls-switch-on="Pagamento pelo cartão de credito"><span></span></label>
+        </div>
+    </label>
+
+    <label class="ls-label col-md-5">
+        <b class="ls-label-text"><%= f.label :internet %></b>
+
+        <div data-ls-module="switchButton" class="ls-switch-btn ls-float-left">
+          <%= f.check_box :internet, id:"ptg_internet" %>
+          <label class="ls-switch-label" for="ptg_internet" name="label-internet" ls-switch-off="Não pagar pela internet" ls-switch-on="Pagamento pela internet"><span></span></label>
+        </div>
+    </label>
+
+  </fieldset>
+
+  <hr>
+
+
+  <div class= "form-actions">
+    <%= f.submit "Adicionar", class:"ls-btn ls-btn-primary ls-ico-plus" %>
+    <%= link_to 'Excluir', @income, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa conta?' }, class: "ls-btn-danger" %>
   </div>
 <% end %>

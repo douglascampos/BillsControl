@@ -1,47 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-stats">Contas</h1>
+  <p id="notice" class="ls-alert-info"><%= notice %></p>
 
-<h1>Listing Bills</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Titulo</th>
-      <th>Descrição</th>
-      <th>Ajuste</th>
-      <th>Parcelas</th>
-      <th>Minicio</th>
-      <th>Mesfinal</th>
-      <th>Saque</th>
-      <th>Transferencia</th>
-      <th>Cartão</th>
-      <th>Internet</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bills.each do |bill| %>
+  <table class="ls-table ls-table-striped">
+    <thead>
       <tr>
-        <td><%= bill.valor %></td>
-        <td><%= bill.titulo %></td>
-        <td><%= bill.descrição %></td>
-        <td><%= bill.ajuste %></td>
-        <td><%= bill.parcelas %></td>
-        <td><%= bill.mInicio %></td>
-        <td><%= bill.mesFinal %></td>
-        <td><%= bill.saque %></td>
-        <td><%= bill.transferencia %></td>
-        <td><%= bill.cartão %></td>
-        <td><%= bill.internet %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Titulo</th>
+        <th class="hidden-xs">Valor</th>
+        <th>Ajuste</th>
+        <th>Parcelas</th>
+        <th>Mes</th>
+        <!-- <th>Saque</th>
+        <th>Transferencia</th> -->
+        <th>Cartão</th>
+        <th colspan="2">Internet</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @bills.each do |bill| %>
+        <tr>
+          <td><%= bill.titulo %></td>
+          <td class="hidden-xs"><%= format_value(bill.valor) %></td>
+          <td><%= format_value(bill.ajuste) %></td>
+          <td><%= bill.parcelas %></td>
+          <td><%= bill.mInicio %></td>
+          <!-- <td><%= bill.saque %></td>
+          <td><%= bill.transferencia %></td> -->
+          <td><%= bill.cartão %></td>
+          <td><%= bill.internet %></td>
+          <td><%= link_to 'Edit', edit_bill_path(bill), class: "ls-btn ls-ico-cog" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-
-<%= link_to 'New Bill', new_bill_path %>
+  <%= link_to 'Adicionar Conta', new_bill_path, class: "ls-btn-primary ls-ico-plus" %>
+</div>

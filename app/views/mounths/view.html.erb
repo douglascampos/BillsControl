@@ -46,7 +46,7 @@
 
 <div class="ls-box ls-board-box">
 <header class="ls-info-header">
-  <h2 class="ls-title-3">Balanço mensal</h2>
+  <h2 class="ls-title-3">Balanço do mês</h2>
   <p class="ls-float-right ls-float-none-xs ls-small-info"> Mês <strong><%= @mounth %></strong></p>
 </header>
 <div id="sending-stats" class="row">
@@ -103,10 +103,7 @@
 </div>
 </div>
 
-</div>
-
 <br>
 
-
-
-<%= link_to 'New Bill', new_bill_path(:mounth => @mounth) %>
+<%= link_to 'Adicionar Conta', new_bill_path(:mounth => @mounth), class: "ls-btn-primary ls-ico-plus" %>
+</div>
