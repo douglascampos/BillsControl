@@ -8,9 +8,15 @@ class MounthsController < ApplicationController
   def view
     # byebug
     @mounth = params[:id]
-    @bills = Bill.where(minicio:params[:id])
-    @total_bills = 0
-    @bills.each { |b| @total_bills += b.valor  }
+    @bills_saque = Bill.where(minicio:params[:id], saque:true)
+    @total_bills_saque = 0
+    @bills_saque.each { |b| @total_bills_saque += b.valor  }
+
+    @bills_trans = Bill.where(minicio:params[:id], transferencia:true)
+    @total_bills_trans = 0
+    @bills_trans.each { |b| @total_bills_trans += b.valor  }
+
+    @total_absolute = @total_bills_trans + @total_bills_saque
 
     @total_incomes = 0
     @incomes = Income.where(mounth:params[:id])

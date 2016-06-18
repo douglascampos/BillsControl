@@ -4,45 +4,65 @@
 
   <p id="notice" class="ls-alert-info"><%= notice %></p>
 
+  <div class="ls-box ls-board-box">
+    <header class="ls-info-header">
+      <h2 class="ls-title-3">Saque</h2>
+      <p class="ls-float-right ls-float-none-xs ls-small-info"> Valor Total: <strong><%= @total_bills_saque %></strong></p>
+    </header>
+    <div class="row">
+      <table class="ls-table ls-table-striped">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th class="hidden-xs">Valor</th>
+            <th>Ajuste</th>
+            <th colspan="2">Parcelas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bills_saque.each do |bill| %>
+            <tr>
+              <td><%= bill.titulo %></td>
+              <td class="hidden-xs"><%= format_value(bill.valor) %></td>
+              <td><%= format_value(bill.ajuste) %></td>
+              <td><%= bill.parcelas %></td>
+              <td><%= link_to 'Edit', edit_bill_path(bill), class: "ls-btn ls-ico-cog" %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+  <div class="ls-box ls-board-box">
+  <header class="ls-info-header">
+    <h2 class="ls-title-3">Transferencia</h2>
+    <p class="ls-float-right ls-float-none-xs ls-small-info"> Valor Total: <strong><%= @total_bills_trans %></strong></p>
+  </header>
+  <div class="row">
   <table class="ls-table ls-table-striped">
     <thead>
       <tr>
         <th>Titulo</th>
         <th class="hidden-xs">Valor</th>
         <th>Ajuste</th>
-        <th>Parcelas</th>
-        <th>Saque</th>
-        <th>Transf.</th>
-        <th>Cartão</th>
-        <th class="hidden-xs" colspan="2">Internet</th>
+        <th colspan="2">Parcelas</th>
       </tr>
     </thead>
     <tbody>
-        <% @bills.each do |bill| %>
+        <% @bills_trans.each do |bill| %>
         <tr>
           <td><%= bill.titulo %></td>
           <td class="hidden-xs"><%= format_value(bill.valor) %></td>
           <td><%= format_value(bill.ajuste) %></td>
           <td><%= bill.parcelas %></td>
-          <td><%= bill.saque %></td>
-          <td><%= bill.transferencia %></td>
-          <td><%= bill.cartão %></td>
-          <td><%= bill.internet %></td>
           <td><%= link_to 'Edit', edit_bill_path(bill), class: "ls-btn ls-ico-cog" %> </td>
-
         </tr>
       <% end %>
     </tbody>
   </table>
-
-  <!-- <hr>
-  <h3>TOTAL DE CONTAS: <%= @total_bills %></h3>
-  <h3>TOTAL DE RENDIMENTOS: <%= @total_incomes %></h3>
-  <h1>SALDO FINAL: <%= @total_incomes - @total_bills %></h1> -->
-
-
-<!-- <hr> -->
-
+</div>
+</div>
 
 <div class="ls-box ls-board-box">
 <header class="ls-info-header">
@@ -70,7 +90,7 @@
         <h6 class="ls-title-4">Total de Contas</h6>
       </div>
       <div class="ls-box-body">
-        <strong><%= format_value(@total_bills) %></strong>
+        <strong><%= format_value(@total_absolute) %></strong>
         <small>Como diminuir as contas?</small>
       </div>
       <div class="ls-box-footer">
@@ -85,7 +105,7 @@
         <h6 class="ls-title-4">Total de Contas</h6>
       </div>
       <div class="ls-box-body">
-        <strong><%= format_value(@total_incomes - @total_bills) %></strong>
+        <strong><%= format_value(@total_incomes - @total_absolute) %></strong>
 
       </div>
       <div class="ls-box-footer">
